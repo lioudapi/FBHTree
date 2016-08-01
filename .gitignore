@@ -1,0 +1,14 @@
+
+FBHTree/build/classes/fbhtree/FBHTree.class
+
+*.xml
+
+*.properties
+
+*.mf
+
+*.class
+
+FBHTree/build/classes/.netbeans_automatic_build
+
+FBHTree/build/classes/.netbeans_update_resources
