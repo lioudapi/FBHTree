@@ -58,11 +58,10 @@ public class Main {
         System.out.println("start digesting files...");
         time = System.currentTimeMillis();
         Map<String, byte[]> digests = new HashMap<>();
-<<<<<<< HEAD
+
 //        int count = 0;
-=======
-        int count = 0;
->>>>>>> origin/master
+
+
             for (String path : files) {
                 
                 String digestStr = HashUtils.sha256(new File(path));
@@ -70,18 +69,18 @@ public class Main {
                 if (digestStr != null) {     
                     digests.put(path, HashUtils.hex2byte(digestStr));
                 }
-<<<<<<< HEAD
+
                 
 //                count++;
 //                if (count==500000){
 //                    break;
 //                }
-=======
+
                 count++;
                 if (count==500000){
                     break;
                 }
->>>>>>> origin/master
+
             }
 
         
@@ -198,7 +197,7 @@ public class Main {
         
     }
     
-<<<<<<< HEAD
+
     public static void Random_update(){
         Random r = new Random();
         Map<String , byte[]> digests = deserializeAllFilePaths();
@@ -328,155 +327,10 @@ public class Main {
             }
         }    
     }
-=======
->>>>>>> origin/master
-    
+
     
     public static void main(String[] args) {
 
-        
-<<<<<<< HEAD
-
-
-=======
-        
-
-//        Main.digestAllFiles();
-//        Main.constructFBHTrees(1,20,1);
-//        Random_Audit();
-        int[] heights = new int[] {12};
-////
-////        
-        for (int treeHeight : heights) {
-            FBHTree tree = deserializeFBHTree(treeHeight); 
-
-         
-            System.out.println(tree.getRootHash());
-            String update_file_path = "/Users/lioudapi/Desktop/addfile.txt";
-            byte[] add_file_digest= HashUtils.hex2byte(HashUtils.sha256(new File(update_file_path)));
-            tree.update(update_file_path, add_file_digest);
-            System.out.println(tree.getRootHash());
-
-//            String add_file_path = "/Users/lioudapi/Desktop/addfile.txt";
-//            byte[] add_file_digest = HashUtils.hex2byte(HashUtils.sha256(new File(add_file_path)));
-
-//            int times = 500;
-//            long extract_elapse = 0;
-//            long evalue_elapse = 0;
-//            long audit_elapse = 0;
-//            String random_slice = "";
-//                
-//            for (int j = 0; j < times ; j++){   
-////                    long add_time = System.currentTimeMillis();                    
-//                    tree.put(add_file_path, add_file_digest);
-                    
-////                    add_time = System.currentTimeMillis() - add_time ;
-////                    add_elapse += add_time ;
-////                }
-////                System.out.println("add file from " + treeHeight + "-level FBHTree " + times + " times costs " + (float) add_elapse/times + " ms");
-////
-////                
-////
-//////                System.out.println("Level- " + treeHeight + " max collision : " + tree.MAX_collision());
-//////                System.out.println("Level- " + treeHeight + " AVG collision : "+ tree.AVG_collision());
-////                
-////                String[] datapath = new String[63];
-////                datapath[0] = "/System/Library/PrivateFrameworks/PhotosPlayer.framework/Versions/A/PhotosPlayer";
-////                datapath[1] = "/System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration";
-////                datapath[2] = "/System/Library/Frameworks/Photos.framework/Versions/A/Photos";
-////                datapath[3] = "/System/Library/Frameworks/PhotosUI.framework/Versions/A/PhotosUI";
-////                datapath[4] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PhotoLibraryServices.framework/Versions/A/PhotoLibraryServices";
-////                datapath[5] = "/System/Library/PrivateFrameworks/GeoKit.framework/Versions/A/GeoKit";
-////                datapath[6] = "/System/Library/Frameworks/OSAKit.framework/Versions/A/OSAKit";
-////                datapath[7] = "/System/Library/PrivateFrameworks/CloudPhotoServices.framework/Versions/A/Frameworks/CloudPhotoServicesConfiguration.framework/Versions/A/CloudPhotoServicesConfiguration";
-////                datapath[8] = "/System/Library/PrivateFrameworks/AOSAccounts.framework/Versions/A/AOSAccounts";
-////                datapath[9] = "/System/Library/PrivateFrameworks/AOSUI.framework/Versions/A/AOSUI";
-////                datapath[10] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PhotosImagingFoundation.framework/Versions/A/PhotosImagingFoundation";
-////                datapath[11] = "/System/Library/PrivateFrameworks/PhotoLibrary.framework/Versions/A/Frameworks/PhotosFormats.framework/Versions/A/PhotosFormats";
-////                datapath[12] = "/usr/lib/libDiagnosticMessagesClient.dylib";
-////                datapath[13] = "/System/Library/PrivateFrameworks/PlugInKit.framework/Versions/A/PlugInKit";
-////                datapath[14] = "/System/Library/Frameworks/IOKit.framework/Versions/A/IOKit";                     
-////                datapath[15] = "/System/Library/Frameworks/AddressBook.framework/Versions/A/AddressBook";
-////                datapath[16] = "/System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox";
-////                datapath[17] = "/System/Library/PrivateFrameworks/Slideshows.framework/Versions/A/Slideshows";
-////                datapath[18] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/PhotoLibraryPrivate";
-////                datapath[19] = "/System/Library/Frameworks/AVFoundation.framework/Versions/A/AVFoundation";
-////                datapath[20] = "/System/Library/Frameworks/Carbon.framework/Versions/A/Carbon";
-////                datapath[21] = "/System/Library/Frameworks/CoreLocation.framework/Versions/A/CoreLocation";
-////                datapath[22] = "/System/Library/Frameworks/MapKit.framework/Versions/A/MapKit";
-////                datapath[23] = "/System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia";
-////                datapath[24] = "/System/Library/Frameworks/QTKit.framework/Versions/A/QTKit";
-////                datapath[25] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/ShareServicesCore.framework/Versions/A/ShareServicesCore";
-////                datapath[26] = "/usr/lib/libicucore.A.dylib";
-////                datapath[27] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/UXKit.framework/Versions/A/UXKit";
-////                datapath[28] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PMR.framework/Versions/A/PMR";
-////                datapath[29] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/Mondrian.framework/Versions/A/Mondrian";
-////                datapath[30] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PhotoFoundation.framework/Versions/A/PhotoFoundation";
-////                datapath[31] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/Geode.framework/Versions/A/Geode";
-////                datapath[32] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PAImaging.framework/Versions/A/PAImaging";
-////                datapath[33] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PAImagingCore.framework/Versions/A/PAImagingCore";
-////                datapath[34] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/iLifeKit.framework/Versions/A/iLifeKit";
-////                datapath[35] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/RedRock.framework/Versions/A/RedRock";
-////                datapath[36] = "/System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface";
-////                datapath[37] = "/System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL";                      
-////                datapath[38] = "/usr/lib/libc++.1.dylib";
-////                datapath[39] = "/System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis";
-////                datapath[40] = "/System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore";
-////                datapath[41] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PhotoPrintProduct.framework/Versions/A/PhotoPrintProduct";
-////                datapath[42] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/PhotoPrintProductStore.framework/Versions/A/PhotoPrintProductStore";
-////                datapath[43] = "/System/Library/PrivateFrameworks/CloudPhotoServices.framework/Versions/A/CloudPhotoServices";
-////                datapath[44] = "/System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL";
-////                datapath[45] = "/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa";
-////                datapath[46] = "/System/Library/PrivateFrameworks/PhotoLibraryPrivate.framework/Versions/A/Frameworks/MediaConversionService.framework/Versions/A/MediaConversionService";
-////                datapath[47] = "/System/Library/PrivateFrameworks/ViewBridge.framework/Versions/A/ViewBridge";
-////                datapath[48] = "/System/Library/PrivateFrameworks/SocialUI.framework/Versions/A/SocialUI";
-////                datapath[49] = "/System/Library/PrivateFrameworks/IMCore.framework/Versions/A/IMCore";
-////                datapath[50] = "/System/Library/PrivateFrameworks/SocialAppsCore.framework/Versions/A/SocialAppsCore";
-////                datapath[51] = "/System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO";
-////                datapath[52] = "/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation";
-////                datapath[53] = "/usr/lib/libobjc.A.dylib";
-////                datapath[54] = "/usr/lib/libSystem.B.dylib";
-////                datapath[55] = "/System/Library/Frameworks/AppKit.framework/Versions/C/AppKit";
-////                datapath[56] = "/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices";
-////                datapath[57] = "/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation";
-////                datapath[58] = "/System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics";
-////                datapath[59] = "/System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage";
-////                datapath[60] = "/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices";
-////                datapath[61] = "/System/Library/Frameworks/CoreText.framework/Versions/A/CoreText";
-////                
-////                
-////              
-////                String[] slice = new String[datapath.length];
-////                boolean[] equal = new boolean[datapath.length];
-//                byte[] rootHash = tree.getRootHash();
-//                for (int i = 0 ; i < times ; i ++){
-//                    for (int datanumber = 0;datanumber < datapath.length;datanumber++){
-////                        slice[datanumber] = tree.extractSlice(datapath[datanumber]);
-////                    }
-//////
-////                    
-////                    
-////                    int datanumber = 13;
-////                    for(int datanumber=0 ; datanumber < 62; datanumber++ ){
-////                        slice[datanumber] = tree.extractSlice(datapath[datanumber]);
-////                        equal[datanumber] = !Arrays.equals(FBHTree.evalRootHashFromSlice(slice[datanumber]), rootHash);
-////                    }
-//                    long extract_time = System.currentTimeMillis();   
-//                    long audit_time = System.currentTimeMillis();                                                       random_slice = tree.extractSlice(paths[r.nextInt(paths.length)]);
-////                   
-//                    extract_time = System.currentTimeMillis()-extract_time;
-//                    extract_elapse += extract_time;
-
-//                    audit_time = System.currentTimeMillis()-audit_time;
-//                    audit_elapse += audit_time;
-//                }
-//////                              
-//                System.out.println("extract time from " + treeHeight + "-level FBHTree " + times + " times costs "+ (float) extract_elapse / times + "ms");
-//                System.out.println("audit time from " + treeHeight + "-level FBHTree " + times + " times costs "+ (float) audit_elapse / times + "ms");
-//                
-//                
-//
-        }
->>>>>>> origin/master
+ 
     }
 }
